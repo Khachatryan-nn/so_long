@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 14:35:57 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:25:00 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int			x;
 	int			y;

@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 14:43:52 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:24:43 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void static	borders_check(char **splited, char *str)
 	int	j;
 
 	i = -1;
-	while (splited[++i])
+	while (splited[++i] != NULL)
 	{
 		j = -1;
 		if (i > 0 && ft_strlen(splited[i - 1]) != ft_strlen(splited[i]))

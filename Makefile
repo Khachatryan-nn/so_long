@@ -24,7 +24,7 @@ $(NAME):			$(OBJS)
 clean:
 						-@$(RM) $(OBJ_PATH)
 
-fclean:
+fclean:				clean
 						-@$(RM) $(NAME)
 
 re:					fclean all
