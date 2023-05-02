@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 22:06:39 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 14:43:32 by tikhacha         ###   ########.fr       */
+/*   Created: 2023/04/29 00:03:43 by tikhacha          #+#    #+#             */
+/*   Updated: 2023/05/02 14:25:45 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int argv, char **argc)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char	**s;
+	int		n;
+	int		k;
+	int		i;
+	char	*p;
 
-	if (argv != 2)
+	if (!s1 || !s2)
+		return (0);
+	i = 0;
+	k = ft_strlen(s1);
+	n = k + ft_strlen(s2) + 1;
+	p = (char *)malloc(sizeof(char) * n);
+	if (!p)
+		return (NULL);
+	p[n - 1] = '\0';
+	while (i < n)
 	{
-		write(2, "Error: there aren't inputs\n", 28);
-		return (1);
+		if (i < k)
+			p[i] = s1[i];
+		else if (*s2)
+			p[i] = *s2++;
+		i++;
 	}
-	s = parsing(argc[1]);
-	free(s);
-	s = 0;
-	return (1);
+	free(s1);
+	s1 = 0;
+	return (p);
 }

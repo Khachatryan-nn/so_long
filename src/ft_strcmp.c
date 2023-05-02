@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 22:06:39 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 14:43:32 by tikhacha         ###   ########.fr       */
+/*   Created: 2023/04/28 21:10:41 by tikhacha          #+#    #+#             */
+/*   Updated: 2023/04/29 00:16:47 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int argv, char **argc)
+int	ft_strcmp(char *str1, char *str2)
 {
-	char	**s;
+	int	i;
 
-	if (argv != 2)
-	{
-		write(2, "Error: there aren't inputs\n", 28);
-		return (1);
-	}
-	s = parsing(argc[1]);
-	free(s);
-	s = 0;
-	return (1);
+	i = 0;
+	while (str1[i] && str2[i] && str1[i] == str2[i])
+		i++;
+	return (str1[i] - str2[i]);
 }

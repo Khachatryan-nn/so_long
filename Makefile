@@ -6,10 +6,10 @@ RM				=	rm -rf
 SRC_PATH		=	src
 OBJ_PATH		=	obj
 SRCS			=	$(wildcard $(SRC_PATH)/*.c)
-OBJS			=	$(patsubst $(SRC_PATH)/*.c, $(OBJ_PATH)/*.o, $(SRC_PATH)/*.c)
+OBJS			=	$(patsubst $(SRC_PATH)/%.c, $(OBJ_PATH)/%.o, $(SRCS))
 
 .DEFAULT_GOAL	=	all
-HEADER			=	$(NAME)
+HEADER			=	includes/so_long.h
 
 all:				$(NAME)
 

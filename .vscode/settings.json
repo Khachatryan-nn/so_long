@@ -1,5 +1,10 @@
 {
 	"files.associations": {
-		"so_long.h": "c"
-	}
+		"so_long.h": "c",
+		"stdlib.h": "c",
+		"fcntl.h": "c",
+		"stdarg.h": "c",
+		"unistd.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }

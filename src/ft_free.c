@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 22:06:39 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 14:43:32 by tikhacha         ###   ########.fr       */
+/*   Created: 2023/05/02 12:59:41 by tikhacha          #+#    #+#             */
+/*   Updated: 2023/05/02 14:24:22 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int argv, char **argc)
+int	free_strings(char **x, char *str)
 {
-	char	**s;
+	int	i;
 
-	if (argv != 2)
+	i = 0;
+	while (x[i] != NULL)
 	{
-		write(2, "Error: there aren't inputs\n", 28);
-		return (1);
+		free(x[i]);
+		i++;
 	}
-	s = parsing(argc[1]);
-	free(s);
-	s = 0;
-	return (1);
+	free(x);
+	x = 0;
+	free(str);
+	str = 0;
+	return (0);
 }
