@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:32:04 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 19:30:26 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:45:00 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void static	fill(char **tab, t_point size, t_point cur, char to_fill)
 {
-	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-		|| (tab[cur.y][cur.x] != to_fill && tab[cur.y][cur.x] != 'C' && tab[cur.y][cur.x] != 'E' && tab[cur.y][cur.x] != '0'))
+	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x)
+		return ;
+	if (tab[cur.y][cur.x] != to_fill && tab[cur.y][cur.x] != 'C' && \
+		tab[cur.y][cur.x] != 'E' && tab[cur.y][cur.x] != '0')
 		return ;
 	tab[cur.y][cur.x] = '~';
 	fill(tab, size, (t_point){cur.x - 1, cur.y}, to_fill);
@@ -57,27 +59,40 @@ void static	ft_player_coord(char **map, t_point *begin)
 		}
 		(*begin).x++;
 	}
-	printf("Error\n");
 	exit (0);
 }
 
-void	flood_fill(char **tab)
+void	exit_check(char **tab, char **area, char *str, t_point size)
+{
+	int		i;
+	int		j;
+
+	i = -1;
+	while (++i < size.y)
+	{
+		j = -1;
+		while (++j < size.x)
+		{
+			if (area[i][j] == 'C' || area[i][j] == 'P' || area[i][j] == 'E')
+			{
+				write (2, "ERROR: You can't collect all coins and escape.\n", 47);
+				free_strings(tab, str);
+				exit (free_matrix(area));
+			}
+		}
+	}
+}
+
+void	flood_fill(char **tab, char *str)
 {
 	t_point	size;
 	t_point	begin;
 	char	**area;
 
-	size.x = 0;
-	size.y = 0;
-	while (tab[0][size.x] != '\0')
-		size.x++;
-	while (tab[size.y] != 0)
-		size.y++;
+	map_size(tab, &size);
 	area = make_area(tab, size);
 	ft_player_coord(area, &begin);
 	fill(area, size, begin, tab[begin.y][begin.x]);
-	for (int i = 0; i < size.y; ++i)
-		printf("%s\n", area[i]);
+	exit_check(tab, area, str, size);
+	free_matrix(area);
 }
-
-//begin -> xaxacoxi texy

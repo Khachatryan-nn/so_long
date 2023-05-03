@@ -3,6 +3,9 @@ CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
+MINILIBX_PATH	=	/Users/tigrankhachatryan/Desktop/all/42/minilibx
+MINILIBX		=	-L$(MINILIBX_PATH) -lmlx -L$/usr/X11/lib -lXext -lX11
+
 SRC_PATH		=	src
 OBJ_PATH		=	obj
 SRCS			=	$(wildcard $(SRC_PATH)/*.c)
@@ -18,7 +21,7 @@ $(OBJ_PATH)/%.o:	$(SRC_PATH)/%.c $(HEADER)
 						-@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):			$(OBJS)
-						-@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+						-@$(CC) $(CFLAGS) $(MINILIBX) $(OBJS) -o $(NAME)
 						@echo "Build complete!"
 
 clean:

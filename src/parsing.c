@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 18:24:43 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/03 21:13:08 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ char	**parsing(char *arg)
 	s = ft_strtrim(read_from_file(fd), ' ');
 	splited = ft_split(s, '\n');
 	forbidden_sym_check(splited, s);
-	flood_fill(splited);
+	flood_fill(splited, s);
+	additional_checks(splited, s);
+	free_strings(splited, s);
 	return (splited);
 }
