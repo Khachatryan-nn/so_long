@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:59:41 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 23:58:18 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/05 14:24:39 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	free_strings(char **x, char *str)
 	return (0);
 }
 
-int	free_matrix(char **x)
+int	free_matrix(char **x, int n)
 {
 	int	i;
 
 	i = 0;
-	while (x[i] != NULL)
+	while (i < n)
 	{
 		free(x[i]);
 		i++;

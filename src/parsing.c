@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/03 21:13:08 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:02:50 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ char	**parsing(char *arg)
 	forbidden_sym_check(splited, s);
 	flood_fill(splited, s);
 	additional_checks(splited, s);
-	free_strings(splited, s);
+	free(s);
+	s = 0;
 	return (splited);
 }

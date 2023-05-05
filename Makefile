@@ -3,8 +3,9 @@ CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
-MINILIBX_PATH	=	/Users/tigrankhachatryan/Desktop/all/42/minilibx
-MINILIBX		=	-L$(MINILIBX_PATH) -lmlx -L$/usr/X11/lib -lXext -lX11
+MINILIBX_PATH	=	/Users/tikhacha/Desktop/all/minilibx
+MINILIBX		=	-L$(MINILIBX_PATH) -lmlx -framework OpenGL -framework AppKit
+#-L/usr/X11/lib -lXext -lX11
 
 SRC_PATH		=	src
 OBJ_PATH		=	obj

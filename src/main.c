@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:06:39 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/03 12:39:23 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:34:57 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	main(int argv, char **argc)
 {
 	char	**s;
-	void	*mlx_ptr;
-	void	*window;
 	t_point	size;
-	(void) window;
+	t_mlx	mlx;
+	int		height;
+	int		width;
 
 	if (argv != 2)
 	{
 		write(2, "Error: there aren't inputs\n", 28);
 		return (1);
 	}
+	height = 48;
+	width = 48;
 	s = parsing(argc[1]);
-	mlx_ptr = mlx_init();
 	map_size(s, &size);
-	window = mlx_new_window(mlx_ptr, size.x * 50, size.y * 50, "so_long");
-	free(s);
-	s = 0;
+	mlx_start(&mlx, size, s);
+	free_matrix(s, size.y);
 	return (1);
 }

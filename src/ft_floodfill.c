@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:32:04 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/03 00:45:00 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/05 14:23:57 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,11 @@ void	exit_check(char **tab, char **area, char *str, t_point size)
 			{
 				write (2, "ERROR: You can't collect all coins and escape.\n", 47);
 				free_strings(tab, str);
-				exit (free_matrix(area));
+				exit (free_matrix(area, size.y));
 			}
 		}
 	}
+	free_matrix(area, size.y);
 }
 
 void	flood_fill(char **tab, char *str)
@@ -94,5 +95,4 @@ void	flood_fill(char **tab, char *str)
 	ft_player_coord(area, &begin);
 	fill(area, size, begin, tab[begin.y][begin.x]);
 	exit_check(tab, area, str, size);
-	free_matrix(area);
 }
