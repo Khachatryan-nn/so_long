@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 00:08:19 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/03 02:40:21 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:15:39 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	additional_checks(char **map, char *s)
 	}
 }
 
-void	map_size(char **map, t_point *size)
+void	map_size(char **map, t_mlx *size)
 {
 	(*size).x = 0;
 	(*size).y = 0;
@@ -49,4 +49,5 @@ void	map_size(char **map, t_point *size)
 		(*size).x++;
 	while (map[(*size).y] != 0)
 		(*size).y++;
+	(*size).map = map;
 }

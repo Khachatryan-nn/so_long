@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/08 16:16:10 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:49:27 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <fcntl.h>
-//# include <mlx.h>
-# include "../../minilibx/mlx.h"
+# include <mlx.h>
+// # include "../../minilibx/mlx.h"
 
 typedef struct s_point
 {
@@ -42,16 +42,6 @@ typedef struct s_img
 	int		width;
 	int		height;
 }			t_img;
-
-typedef struct s_mlx
-{
-	void		*ptr;
-	void		*win;
-	char		**map;
-	t_img		img;
-	t_player	player;
-	t_rival		rival;
-}				t_mlx;
 
 typedef struct s_game_p
 {
@@ -94,12 +84,30 @@ typedef struct s_game_wandg
 	void	*g4;
 	void	*g5;
 	void	*g6;
-}
+	void	*g7;
+	void	*g8;
+	void	*g9;
+}			t_etc;
+
+typedef struct s_mlx
+{
+	void		*ptr;
+	void		*win;
+	char		**map;
+	int			x;
+	int			y;
+	int			w;
+	int			h;
+	t_img		img;
+	t_player	player;
+	t_rival		rival;
+	t_etc		gAndW;
+}				t_mlx;
 
 char	*ft_substr(char *s, unsigned int start, size_t len);
-void	mlx_start(t_mlx *mlx, t_point size, char **map);
+void	mlx_start(t_mlx *mlx);
 void	additional_checks(char **map, char *s);
-void	map_size(char **map, t_point *size);
+void	map_size(char **map, t_mlx *size);
 char	**ft_split(char const *s, char c);
 int		free_strings(char **x, char *str);
 int		ft_strcmp(char *str1, char *str2);

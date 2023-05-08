@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/05 16:02:50 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:56:12 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void static	forbidden_sym_check(char **splited, char *str)
 	while (str[i])
 	{
 		if (str[i] != 'C' && str[i] != 'P' && str[i] != '1' \
-			&& str[i] != '0' && str[i] != 'E')
+			&& str[i] != '0' && str[i] != 'E' && str[i] != 'R')
 		{
 			if (str[i] != '\n')
 			{

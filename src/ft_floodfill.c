@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:32:04 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/08 09:22:38 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:58:46 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,12 @@ void	flood_fill(char **tab, char *str)
 	t_point	begin;
 	char	**area;
 
-	map_size(tab, &size);
+	size.x = 0;
+	size.y = 0;
+	while (tab[0][size.x] != '\0')
+		size.x++;
+	while (tab[size.y] != 0)
+		size.y++;
 	area = make_area(tab, size);
 	ft_player_coord(area, &begin);
 	fill(area, size, begin, tab[begin.y][begin.x]);
