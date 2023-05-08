@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:32:04 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/05 14:23:57 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/08 09:22:38 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,17 @@ char static	**make_area(char **zone, t_point size)
 
 void static	ft_player_coord(char **map, t_point *begin)
 {
-	(*begin).x = 0;
-	while (map[(*begin).x])
+	(*begin).y = 0;
+	while (map[(*begin).y])
 	{
-		(*begin).y = 0;
-		while (map[(*begin).x][(*begin).y])
+		(*begin).x = 0;
+		while (map[(*begin).y][(*begin).x])
 		{
-			if (map[(*begin).x][(*begin).y] == 'P')
+			if (map[(*begin).y][(*begin).x] == 'P')
 				return ;
-			(*begin).y++;
+			(*begin).x++;
 		}
-		(*begin).x++;
+		(*begin).y++;
 	}
 	exit (0);
 }

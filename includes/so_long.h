@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/05 18:38:03 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:16:10 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <mlx.h>
+//# include <mlx.h>
+# include "../../minilibx/mlx.h"
 
 typedef struct s_point
 {
@@ -36,20 +37,64 @@ typedef struct s_point
 
 typedef struct s_img
 {
-	void	*img_ptr;
+	void	*ptr;
 	int		*data;
-	int		size_l;
-	int		bpp;
-	int		endian;
+	int		width;
+	int		height;
 }			t_img;
 
 typedef struct s_mlx
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
-	t_img	img;
-}			t_mlx;
+	void		*ptr;
+	void		*win;
+	char		**map;
+	t_img		img;
+	t_player	player;
+	t_rival		rival;
+}				t_mlx;
 
+typedef struct s_game_p
+{
+	void	*ptr;
+	void	*win;
+	void	*pf0;
+	void	*pf1;
+	void	*pf2;
+	void	*pf3;
+	void	*pr0;
+	void	*pr1;
+	void	*pr2;
+	void	*pr3;
+	void	*pr4;
+	void	*pr5;
+	void	*pr6;
+	void	*pr7;
+}			t_player;
+
+typedef struct s_game_r
+{
+	void	*ptr;
+	void	*win;
+	void	*rv0;
+	void	*rv1;
+	void	*rv2;
+	void	*rv3;
+}			t_rival;
+
+typedef struct s_game_wandg
+{
+	void	*ptr;
+	void	*win;
+	void	*w0;
+	void	*w1;
+	void	*g0;
+	void	*g1;
+	void	*g2;
+	void	*g3;
+	void	*g4;
+	void	*g5;
+	void	*g6;
+}
 
 char	*ft_substr(char *s, unsigned int start, size_t len);
 void	mlx_start(t_mlx *mlx, t_point size, char **map);
