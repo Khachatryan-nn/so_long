@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:59:41 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/05 14:24:39 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/10 22:20:17 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,19 @@ int	free_matrix(char **x, int n)
 	free(x);
 	x = 0;
 	return (0);
+}
+
+void	free_vmatrix(t_mlx *mlx, void **x, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (x[i])
+			mlx_destroy_image(MLX.ptr, x[i]);
+		i++;
+	}
+	free(x);
+	x = 0;
 }

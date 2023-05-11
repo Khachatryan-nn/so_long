@@ -3,10 +3,10 @@ CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
-MINILIBX_PATH	=	/Users/tikhacha/Desktop/all/minilibx
-# MINILIBX_PATH	=	/Users/tigrankhachatryan/Desktop/all/42/minilibx
+#MINILIBX_PATH	=	/Users/tikhacha/Desktop/all/minilibx
+MINILIBX_PATH	=	/Users/tigrankhachatryan/Desktop/all/42/minilibx
 MINILIBX		=	-L$(MINILIBX_PATH) -lmlx -framework OpenGL -framework AppKit
-# X11_FLAGS		=	-L/usr/X11/lib -lXext -lX11
+X11_FLAGS		=	-L/usr/X11/lib -lXext -lX11
 #-L/usr/X11/lib -lXext -lX11
 
 SRC_PATH		=	src
@@ -24,9 +24,9 @@ $(OBJ_PATH)/%.o:	$(SRC_PATH)/%.c $(HEADER)
 						-@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):			$(OBJS)
-						-@$(CC) $(CFLAGS) $(MINILIBX) -o $(NAME) $(OBJS)
+						-@$(CC) $(CFLAGS) $(MINILIBX) $(X11_FLAGS) -o $(NAME) $(OBJS)
 						@echo "Build complete!"
-#-@$(CC) $(CFLAGS) $(MINILIBX) $(X11_FLAGS) -o $(NAME) $(OBJS)
+#						-@$(CC) $(CFLAGS) $(MINILIBX) -o $(NAME) $(OBJS)
 
 clean:
 						-@$(RM) $(OBJ_PATH)

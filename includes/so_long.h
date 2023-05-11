@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/08 17:49:27 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:00:28 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,87 +26,117 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <mlx.h>
-// # include "../../minilibx/mlx.h"
+# include "../../minilibx/mlx.h"
+//# include <mlx.h>
 
+#define MLX	(*mlx)
+#define XPM mlx_xpm_file_to_image
+#define	MPW	mlx_put_image_to_window
+#define KeyDown 2
+#define KeyPressMask 1L<<0
+
+/*
+*int	x;
+*int	y;
+*/
 typedef struct s_point
 {
-	int			x;
-	int			y;
-}				t_point;
+	int	x;
+	int	y;
+}		t_point;
 
-typedef struct s_img
-{
-	void	*ptr;
-	int		*data;
-	int		width;
-	int		height;
-}			t_img;
-
+/*
+*void	**pf;
+*void	**pr;
+*int	pfc;
+*int	prc;
+*/
 typedef struct s_game_p
 {
-	void	*ptr;
-	void	*win;
-	void	*pf0;
-	void	*pf1;
-	void	*pf2;
-	void	*pf3;
-	void	*pr0;
-	void	*pr1;
-	void	*pr2;
-	void	*pr3;
-	void	*pr4;
-	void	*pr5;
-	void	*pr6;
-	void	*pr7;
+	void	**pf;
+	void	**pr;
+	int		pfc;
+	int		prc;
 }			t_player;
 
+/*
+*void	**rv;
+*int	rvc;
+*/
 typedef struct s_game_r
 {
-	void	*ptr;
-	void	*win;
-	void	*rv0;
-	void	*rv1;
-	void	*rv2;
-	void	*rv3;
+	void	**rv;
+	int		rvc;
 }			t_rival;
 
+/*
+*void	**g;
+*void	**w;
+*int	wc;
+*int	gc;
+*/
 typedef struct s_game_wandg
 {
-	void	*ptr;
-	void	*win;
-	void	*w0;
-	void	*w1;
-	void	*g0;
-	void	*g1;
-	void	*g2;
-	void	*g3;
-	void	*g4;
-	void	*g5;
-	void	*g6;
-	void	*g7;
-	void	*g8;
-	void	*g9;
+	void	**g;
+	void	**w;
+	int		wc;
+	int		gc;
 }			t_etc;
 
+/*
+*void	**c;
+*int	wc;
+*/
+typedef struct s_coins
+{
+	void	**c;
+	int		wc;
+}			t_coin;
+
+/*
+*void	**d;
+*int	dc;
+*/
+typedef struct	s_doors
+{
+	void	**d;
+	int		dc;
+}			t_door;
+
+/*
+*void		*ptr;
+*void		*win;
+*char		**map;
+*int		x;
+*int		y;
+*int		w;
+*int		h;
+*t_player	player;
+*t_rival	rival;
+*t_etc		gAndW;
+*/
 typedef struct s_mlx
 {
 	void		*ptr;
 	void		*win;
 	char		**map;
+	int			on_off;
+	int			counter;
 	int			x;
 	int			y;
 	int			w;
 	int			h;
-	t_img		img;
-	t_player	player;
-	t_rival		rival;
-	t_etc		gAndW;
+	t_player	p;
+	t_rival		r;
+	t_etc		gw;
+	t_coin		c;
+	t_door		d;
 }				t_mlx;
 
 char	*ft_substr(char *s, unsigned int start, size_t len);
-void	mlx_start(t_mlx *mlx);
+void	free_vmatrix(t_mlx *mlx, void **x, int n);
 void	additional_checks(char **map, char *s);
+int		keypressed(int keycode, void *mlx);
 void	map_size(char **map, t_mlx *size);
 char	**ft_split(char const *s, char c);
 int		free_strings(char **x, char *str);
@@ -117,9 +147,12 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char *str, char c);
 char	*ft_strrchr(char *str, char c);
 int		free_matrix(char **x, int n);
+int		close_window(t_mlx *mlx);
 char	*get_next_line(int fd);
+void	mlx_start(t_mlx *mlx);
 char	*ft_strdup(char *str);
 int		ft_strlen(char *str);
 char	**parsing(char *arg);
+char    *ft_itoa(int n);
 
 #endif
