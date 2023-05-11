@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/08 17:56:12 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:44:02 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void static	borders_check(char **splited, char *str)
 			{
 				if (splited[i][j] != '1')
 				{
-					write (2, "ERROR: There are missing '1' in borders.\n", 41);
+					write (2, "ERROR: Missing '1' in borders.\n", 31);
 					exit (free_strings (splited, str));
 				}
 			}
@@ -70,7 +70,7 @@ void static	forbidden_sym_check(char **splited, char *str)
 			if (str[i] != '\n')
 			{
 				free (str);
-				write (2, "ERROR: There are forbidden character in our map.\n", 49);
+				write (2, "ERROR: Forbidden character in our map.\n", 39);
 				exit (0);
 			}
 		}
@@ -94,7 +94,7 @@ char	**parsing(char *arg)
 	s = ft_strrchr(arg, '.');
 	if (!s || ft_strcmp(s, ".ber"))
 	{
-		write (2, "ERROR: Invalid file type. Program only works with .ber files. Please check and try again.\n", 90);
+		write (2, "ERROR: Invalid file type.\n", 26);
 		exit(0);
 	}
 	fd = open(arg, O_RDONLY);

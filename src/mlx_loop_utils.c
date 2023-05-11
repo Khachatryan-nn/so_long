@@ -6,16 +6,26 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:20:31 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 14:01:38 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:33:31 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+int	frame(int n)
+{
+	static int	k;
+
+	k++;
+	if (k == 10000)
+		k = 0;
+	return ((k / 70) % n);
+}
+
 int	close_window(t_mlx *mlx)
 {
-	mlx_loop_end(MLX.ptr);
 	MLX.on_off = 0;
+	mlx_clear_window((MLX).ptr, (MLX).win);
 	if (MLX.map)
 		free_matrix(MLX.map, MLX.y);
 	if (MLX.win)
@@ -34,18 +44,20 @@ int	close_window(t_mlx *mlx)
 		free_vmatrix(mlx, MLX.c.c, MLX.c.wc);
 	if (MLX.d.d)
 		free_vmatrix(mlx, MLX.d.d, MLX.d.dc);
-	return (0);
+	exit (0);
 }
 
-int	keypressed(int keycode, void *mlx)
+int	keypressed(int keycode, t_mlx *mlx)
 {
-	(void) mlx;
-	if (keycode == 97)
-	{
-		printf("A worked\n");
-		//if (MLX.map[i][j])
-	}
-	else if (keycode == 115)
-		printf("S worked\n");
+	if (keycode == keyA || keycode == LeftArrow)
+		move_left(mlx);
+	else if (keycode == keyS || keycode == DownArrow)
+		move_down(mlx);
+	else if (keycode == keyD || keycode == RightArrow)
+		move_right(mlx);
+	else if (keycode == keyW || keycode == UpArrow)
+		move_up(mlx);
+	else if (keycode == keyEsc || keycode == keyC)
+		close_window(mlx);
 	return (0);
 }

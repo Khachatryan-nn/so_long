@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:32:04 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/08 17:58:46 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:14:36 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char static	**make_area(char **zone, t_point size)
 	return (new);
 }
 
-void static	ft_player_coord(char **map, t_point *begin)
+void	ft_player_coord(char **map, t_point *begin)
 {
 	(*begin).y = 0;
 	while (map[(*begin).y])

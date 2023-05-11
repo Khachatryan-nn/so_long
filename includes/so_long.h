@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 14:00:28 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:36:16 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,28 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "../../minilibx/mlx.h"
-//# include <mlx.h>
+# include <math.h>
+// # include "../../minilibx/mlx.h"
+# include <mlx.h>
 
 #define MLX	(*mlx)
 #define XPM mlx_xpm_file_to_image
 #define	MPW	mlx_put_image_to_window
 #define KeyDown 2
-#define KeyPressMask 1L<<0
+#define DARK_ORANGE 0xDC5410
+#define BLUE 0x1681C9
+#define REDCROSS 17
+#define keyA 0
+#define keyS 1
+#define keyD 2
+#define keyW 13
+#define	UpArrow 126
+#define	DownArrow 125
+#define	LeftArrow 123
+#define	RightArrow 124
+#define keyC 8
+#define keyEsc 53
+#define S 48
 
 /*
 *int	x;
@@ -86,11 +100,17 @@ typedef struct s_game_wandg
 /*
 *void	**c;
 *int	wc;
+*int	coins;
+*int	n;
+*int	custom;
 */
 typedef struct s_coins
 {
 	void	**c;
 	int		wc;
+	int		coins;
+	int		n;
+	int		custom;
 }			t_coin;
 
 /*
@@ -107,13 +127,17 @@ typedef struct	s_doors
 *void		*ptr;
 *void		*win;
 *char		**map;
+*int		on_off;
+*int		counter;
 *int		x;
 *int		y;
 *int		w;
 *int		h;
-*t_player	player;
-*t_rival	rival;
-*t_etc		gAndW;
+*t_player	p;
+*t_rival	r;
+*t_etc		gw;
+*t_coin		c;
+*t_door		d;
 */
 typedef struct s_mlx
 {
@@ -134,9 +158,11 @@ typedef struct s_mlx
 }				t_mlx;
 
 char	*ft_substr(char *s, unsigned int start, size_t len);
+void	ft_player_coord(char **map, t_point *begin);
+void	game_win(t_mlx *mlx, int i, int j, char c);
 void	free_vmatrix(t_mlx *mlx, void **x, int n);
 void	additional_checks(char **map, char *s);
-int		keypressed(int keycode, void *mlx);
+int		keypressed(int keycode, t_mlx *mlx);
 void	map_size(char **map, t_mlx *size);
 char	**ft_split(char const *s, char c);
 int		free_strings(char **x, char *str);
@@ -147,12 +173,22 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char *str, char c);
 char	*ft_strrchr(char *str, char c);
 int		free_matrix(char **x, int n);
+void	mlx_put_sprites(t_mlx *mlx);
+void	mlx_put_ground(t_mlx *mlx);
+void	load_sprites_3(t_mlx *mlx);
+void	load_sprites_2(t_mlx *mlx);
+void	load_sprites(t_mlx *mlx);
 int		close_window(t_mlx *mlx);
 char	*get_next_line(int fd);
+void	move_right(t_mlx *mlx);
+void	move_left(t_mlx *mlx);
+void	move_down(t_mlx *mlx);
+void	move_up(t_mlx *mlx);
 void	mlx_start(t_mlx *mlx);
 char	*ft_strdup(char *str);
 int		ft_strlen(char *str);
 char	**parsing(char *arg);
 char    *ft_itoa(int n);
+int		frame(int n);
 
 #endif
