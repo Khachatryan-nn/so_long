@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:20:22 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 19:58:56 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:02:42 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	mlx_put_ground(t_mlx *mlx)
 	int	i;
 	int	j;
 
-	k = abs((int) mlx) % abs((int) MLX.map) % 10;
+	k = labs((long int) mlx) % labs((long int) MLX.map) % 10;
 	i = 0;
 	while (++i < MLX.y)
 	{

@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:18:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 19:43:42 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:08:23 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	mlx_start(t_mlx *mlx)
 	load_sprites(mlx);
 	load_sprites_2(mlx);
 	load_sprites_3(mlx);
-	mlx_hook(MLX.win, KeyDown, 0, &keypressed, mlx);
-	mlx_hook(MLX.win, REDCROSS, 0, &close_window, mlx);
+	mlx_hook(MLX.win, KeyDown, 1L<<0, &keypressed, mlx);
+	mlx_hook(MLX.win, REDCROSS, 1L<<0, &close_window, mlx);
 	mlx_loop_hook(MLX.ptr, &mlxloop, mlx);
 	mlx_loop(MLX.ptr);
 }
