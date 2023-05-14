@@ -6,25 +6,33 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:20:22 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 20:02:42 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:00:01 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	game_win(t_mlx *mlx, int i, int j, char c)
+void static	mlx_put_player(t_mlx *mlx, int i, int j)
 {
-	if (c == 'u')
-		MLX.map[i - 1][j] = 'P';
-	if (c == 'd')
-		MLX.map[i + 1][j] = 'P';
-	if (c == 'l')
-		MLX.map[i][j - 1] = 'P';
-	if (c == 'r')
-		MLX.map[i][j + 1] = 'P';
-	MLX.map[i][j] = '0';
-	write (1, "You won.\n", 9);
-	close_window(mlx);
+	int k;
+
+	k = -1;
+	if (MLX.p.dir == 0)
+	{
+		while (++k < MLX.p.pfc * 19)
+			MPW(MLX.ptr, MLX.win, MLX.p.pf[i / 20], j * S, i * S);
+	}
+	else if (MLX.p.dir == 2)
+	{
+		while (++k < MLX.p.pfc * 19)
+			MPW(MLX.ptr, MLX.win, MLX.p.pr[i / 20], j * S, i * S);
+	}
+	else if (MLX.p.dir == 1)
+	{
+		while (++k < MLX.p.plc * 19)
+			MPW(MLX.ptr, MLX.win, MLX.p.pl[i / 20], j * S, i * S);
+	}
+	MLX.p.dir = 0;
 }
 
 void	mlx_put_ground(t_mlx *mlx)
@@ -73,7 +81,7 @@ void	mlx_put_sprites(t_mlx *mlx)
 		while (++j < MLX.x)
 		{
 			if (MLX.map[i][j] == 'P')
-				MPW(MLX.ptr, MLX.win, MLX.p.pf[frame(MLX.p.pfc)], j * S, i * S);
+				mlx_put_player(mlx, i, j);
 			else if (MLX.map[i][j] == 'R')
 				MPW(MLX.ptr, MLX.win, MLX.r.rv[frame(MLX.r.rvc)], j * S, i * S);
 			else if (MLX.map[i][j] == 'E')
@@ -87,5 +95,4 @@ void	mlx_put_sprites(t_mlx *mlx)
 				MPW(MLX.ptr, MLX.win, MLX.c.c[frame(MLX.c.wc)], j * S, i * S);
 		}
 	}
-	mlx_string_put(MLX.ptr, MLX.win, 5, 0, BLUE, ft_itoa(MLX.counter));
 }

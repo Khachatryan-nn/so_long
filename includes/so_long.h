@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 20:01:15 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 19:48:19 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../../minilibx/mlx.h"
-//# include <mlx.h>
+//# include <mlx.h>x
 
 #define MLX	(*mlx)
 #define XPM mlx_xpm_file_to_image
@@ -69,8 +69,11 @@ typedef struct s_game_p
 {
 	void	**pf;
 	void	**pr;
+	void	**pl;
+	int		dir;
 	int		pfc;
 	int		prc;
+	int		plc;
 }			t_player;
 
 /*

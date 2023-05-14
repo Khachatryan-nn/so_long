@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 18:44:02 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:15:46 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void static	borders_check(char **splited, char *str)
 		if (i > 0 && ft_strlen(splited[i - 1]) != ft_strlen(splited[i]))
 		{
 			write (2, "ERROR: There are different lenghted rows.\n", 42);
-			exit (free_strings (splited, str));
+			exit (free_strings(splited, str));
 		}
 		while (splited[i][++j])
 		{
@@ -50,7 +50,7 @@ void static	borders_check(char **splited, char *str)
 				if (splited[i][j] != '1')
 				{
 					write (2, "ERROR: Missing '1' in borders.\n", 31);
-					exit (free_strings (splited, str));
+					exit (free_strings(splited, str));
 				}
 			}
 		}

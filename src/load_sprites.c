@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 19:15:05 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 19:15:48 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 19:50:32 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 void	load_sprites(t_mlx *mlx)
 {
-	MLX.p.pfc = 4;
-	MLX.p.prc = 8;
 	MLX.p.pf = (void **)malloc(sizeof(void *) * MLX.p.pfc);
 	MLX.p.pr = (void **)malloc(sizeof(void *) * MLX.p.prc);
-	MLX.r.rvc = 4;
 	MLX.r.rv = (void **)malloc(sizeof(void *) * MLX.r.rvc);
 	if (!MLX.p.pf || !MLX.p.pr || !MLX.r.rv)
 		exit(close_window(mlx));
@@ -42,9 +39,6 @@ void	load_sprites(t_mlx *mlx)
 
 void	load_sprites_2(t_mlx *mlx)
 {
-	MLX.gw.gc = 8;
-	MLX.gw.wc = 2;
-	MLX.d.dc = 5;
 	MLX.gw.g = (void **)malloc(sizeof(void *) * MLX.gw.gc);
 	MLX.gw.w = (void **)malloc(sizeof(void *) * MLX.gw.wc);
 	MLX.d.d = (void **)malloc(sizeof(void *) * MLX.d.dc);
@@ -71,10 +65,20 @@ void	load_sprites_2(t_mlx *mlx)
 void	load_sprites_3(t_mlx *mlx)
 {
 	MLX.c.wc = 3;
+	MLX.p.plc = 8;
 	MLX.c.c = (void **)malloc(sizeof(void *) * MLX.c.wc);
+	MLX.p.pl = (void **)malloc(sizeof(void *) * MLX.p.plc);
 	if (!MLX.c.c)
 		exit(close_window(mlx));
 	MLX.c.c[0] = XPM(MLX.ptr, "./spr/C_0.xpm", &MLX.w, &MLX.h);
 	MLX.c.c[1] = XPM(MLX.ptr, "./spr/C_1.xpm", &MLX.w, &MLX.h);
 	MLX.c.c[2] = XPM(MLX.ptr, "./spr/C_2.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[0] = XPM(MLX.ptr, "./spr/Pl_0.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[1] = XPM(MLX.ptr, "./spr/Pl_1.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[2] = XPM(MLX.ptr, "./spr/Pl_2.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[3] = XPM(MLX.ptr, "./spr/Pl_3.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[4] = XPM(MLX.ptr, "./spr/Pl_4.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[5] = XPM(MLX.ptr, "./spr/Pl_5.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[6] = XPM(MLX.ptr, "./spr/Pl_6.xpm", &MLX.w, &MLX.h);
+	MLX.p.pl[7] = XPM(MLX.ptr, "./spr/Pl_7.xpm", &MLX.w, &MLX.h);
 }

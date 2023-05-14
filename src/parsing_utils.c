@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 00:08:19 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/08 17:15:39 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:17:17 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	additional_checks(char **map, char *s)
 		{
 			if (map[i][j] == 'E')
 				counter_E++;
-			if (map[i][j] == 'E')
+			if (map[i][j] == 'P')
 				counter_P++;
 		}
 	}

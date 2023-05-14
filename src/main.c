@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:06:39 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/10 22:25:37 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 20:03:19 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,5 @@ int	main(int argv, char **argc)
 	mlx.map = parsing(argc[1]);
 	map_size(mlx.map, &mlx);
 	mlx_start(&mlx);
-	free(mlx.ptr);
-	t_mlx new;
-	new.h = 0;
-	mlx = new;
-	//system("leaks so_long");
 	return (1);
 }

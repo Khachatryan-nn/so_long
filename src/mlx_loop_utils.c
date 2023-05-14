@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:20:31 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/11 20:10:20 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:09:54 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ int	close_window(t_mlx *mlx)
 		free_vmatrix(mlx, MLX.p.pr, MLX.p.prc);
 	if (MLX.r.rv)
 		free_vmatrix(mlx, MLX.r.rv, MLX.r.rvc);
-	if (MLX.c.c)
-		free_vmatrix(mlx, MLX.c.c, MLX.c.wc);
 	if (MLX.d.d)
 		free_vmatrix(mlx, MLX.d.d, MLX.d.dc);
+	if (MLX.c.c)
+		free_vmatrix(mlx, MLX.c.c, MLX.c.wc);
+	free(MLX.ptr);
 	exit (0);
 }
 

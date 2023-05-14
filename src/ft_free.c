@@ -6,11 +6,26 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:59:41 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/10 22:20:17 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:08:57 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	game_win(t_mlx *mlx, int i, int j, char c)
+{
+	if (c == 'u')
+		MLX.map[i - 1][j] = 'P';
+	if (c == 'd')
+		MLX.map[i + 1][j] = 'P';
+	if (c == 'l')
+		MLX.map[i][j - 1] = 'P';
+	if (c == 'r')
+		MLX.map[i][j + 1] = 'P';
+	MLX.map[i][j] = '0';
+	printf("\033[38;5;202mYou win!\033[0m\n");
+	close_window(mlx);
+}
 
 int	free_strings(char **x, char *str)
 {
