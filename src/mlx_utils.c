@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:18:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 16:37:11 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 18:53:53 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void static	mlx_hooks(t_mlx *mlx)
 void	mlx_start(t_mlx *mlx)
 {
 	MLX.ptr = mlx_init();
-	MLX.win = mlx_new_window(MLX.ptr, MLX.x * 48, MLX.y * 48, "so_long");
+	MLX.win = mlx_new_window(MLX.ptr, MLX.x * 48, MLX.y * 48, "./so_long");
 	MLX.w = 48;
 	MLX.h = 48;
 	MLX.c.coins = 0;
