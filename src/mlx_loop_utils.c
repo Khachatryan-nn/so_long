@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:20:31 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/12 17:09:54 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 18:45:10 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,23 @@ int	frame(int n)
 	k++;
 	if (k == 10000)
 		k = 0;
-	return ((k / 70) % n);
+	return ((k / 150) % n);
 }
 
 int	close_window(t_mlx *mlx)
 {
 	MLX.on_off = 0;
 	mlx_clear_window((MLX).ptr, (MLX).win);
-	if (MLX.map)
-		free_matrix(MLX.map, MLX.y);
-	if (MLX.win)
-		mlx_destroy_window(MLX.ptr, MLX.win);
-	if (MLX.gw.g)
-		free_vmatrix(mlx, MLX.gw.g, MLX.gw.gc);
-	if (MLX.gw.w)
-		free_vmatrix(mlx, MLX.gw.w, MLX.gw.wc);
-	if (MLX.p.pf)
-		free_vmatrix(mlx, MLX.p.pf, MLX.p.pfc);
-	if (MLX.p.pr)
-		free_vmatrix(mlx, MLX.p.pr, MLX.p.prc);
-	if (MLX.r.rv)
-		free_vmatrix(mlx, MLX.r.rv, MLX.r.rvc);
-	if (MLX.d.d)
-		free_vmatrix(mlx, MLX.d.d, MLX.d.dc);
-	if (MLX.c.c)
-		free_vmatrix(mlx, MLX.c.c, MLX.c.wc);
-	free(MLX.ptr);
+	free_matrix(MLX.map, MLX.y);
+	mlx_destroy_window(MLX.ptr, MLX.win);
+	free_vmatrix(mlx, MLX.gw.g, MLX.gw.gc);
+	free_vmatrix(mlx, MLX.gw.w, MLX.gw.wc);
+	free_vmatrix(mlx, MLX.p.pf, MLX.p.pfc);
+	free_vmatrix(mlx, MLX.p.pl, MLX.p.plc);
+	free_vmatrix(mlx, MLX.p.pr, MLX.p.prc);
+	free_vmatrix(mlx, MLX.r.rv, MLX.r.rvc);
+	free_vmatrix(mlx, MLX.d.d, MLX.d.dc);
+	free_vmatrix(mlx, MLX.c.c, MLX.c.wc);
 	exit (0);
 }
 

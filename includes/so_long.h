@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/12 19:48:19 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 14:48:28 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include "../../minilibx/mlx.h"
-//# include <mlx.h>x
+# include <mlx.h>
 
 #define MLX	(*mlx)
 #define XPM mlx_xpm_file_to_image

@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:20:22 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/12 20:00:01 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 15:23:11 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 void static	mlx_put_player(t_mlx *mlx, int i, int j)
 {
-	int k;
+	static int k;
 
-	k = -1;
 	if (MLX.p.dir == 0)
 	{
-		while (++k < MLX.p.pfc * 19)
-			MPW(MLX.ptr, MLX.win, MLX.p.pf[i / 20], j * S, i * S);
+		MPW(MLX.ptr, MLX.win, MLX.p.pf[frame(MLX.p.pfc)], j * S, i * S);
 	}
 	else if (MLX.p.dir == 2)
 	{
-		while (++k < MLX.p.pfc * 19)
-			MPW(MLX.ptr, MLX.win, MLX.p.pr[i / 20], j * S, i * S);
+		k++;
+		MPW(MLX.ptr, MLX.win, MLX.p.pr[frame(MLX.p.pfc)], j * S, i * S);
 	}
 	else if (MLX.p.dir == 1)
 	{
-		while (++k < MLX.p.plc * 19)
-			MPW(MLX.ptr, MLX.win, MLX.p.pl[i / 20], j * S, i * S);
+		k++;
+		MPW(MLX.ptr, MLX.win, MLX.p.pl[frame(MLX.p.pfc)], j * S, i * S);
 	}
-	MLX.p.dir = 0;
+	if (MLX.p.dir != 0 && k == MLX.p.plc + 5)
+	{
+		k = 0;
+		MLX.p.dir = 0;
+	}
 }
 
 void	mlx_put_ground(t_mlx *mlx)

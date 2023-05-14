@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:32:04 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/13 22:08:02 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:33:14 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ void static	fill(char **tab, t_point size, t_point cur, char to_fill)
 {
 	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x)
 		return ;
+	if (tab[cur.y][cur.x] == 'E' || tab[cur.y][cur.x] == '-')
+	{
+		tab[cur.y][cur.x] = '-';
+		return ;
+	}
 	if (tab[cur.y][cur.x] != to_fill && tab[cur.y][cur.x] != 'C' && \
 		tab[cur.y][cur.x] != 'E' && tab[cur.y][cur.x] != '0')
 		return ;
-	if (tab[cur.y][cur.x] == 'E')
-		tab[cur.x][cur.y] = '-';
 	else
 		tab[cur.y][cur.x] = '~';
 	fill(tab, size, (t_point){cur.x - 1, cur.y}, to_fill);
