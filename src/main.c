@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:06:39 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/12 20:03:19 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:09:05 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	main(int argv, char **argc)
 	t_mlx	mlx;
 	int		height;
 	int		width;
-	(void) height;
-	(void) width;
 
 	if (argv != 2)
 	{

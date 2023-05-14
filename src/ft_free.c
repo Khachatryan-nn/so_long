@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:59:41 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/12 17:08:57 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:51:07 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	game_win(t_mlx *mlx, int i, int j, char c)
 {
 	if (c == 'u')
-		MLX.map[i - 1][j] = 'P';
+		(*mlx).map[i - 1][j] = 'P';
 	if (c == 'd')
-		MLX.map[i + 1][j] = 'P';
+		(*mlx).map[i + 1][j] = 'P';
 	if (c == 'l')
-		MLX.map[i][j - 1] = 'P';
+		(*mlx).map[i][j - 1] = 'P';
 	if (c == 'r')
-		MLX.map[i][j + 1] = 'P';
-	MLX.map[i][j] = '0';
+		(*mlx).map[i][j + 1] = 'P';
+	(*mlx).map[i][j] = '0';
 	printf("\033[38;5;202mYou win!\033[0m\n");
 	close_window(mlx);
 }
@@ -70,7 +70,7 @@ void	free_vmatrix(t_mlx *mlx, void **x, int n)
 	while (i < n)
 	{
 		if (x[i])
-			mlx_destroy_image(MLX.ptr, x[i]);
+			mlx_destroy_image((*mlx).ptr, x[i]);
 		i++;
 	}
 	free(x);

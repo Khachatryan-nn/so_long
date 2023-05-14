@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:20:22 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 15:23:11 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:07:15 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,29 @@
 
 void static	mlx_put_player(t_mlx *mlx, int i, int j)
 {
-	static int k;
+	static int	k;
 
-	if (MLX.p.dir == 0)
+	if ((*mlx).p.dir == 0)
 	{
-		MPW(MLX.ptr, MLX.win, MLX.p.pf[frame(MLX.p.pfc)], j * S, i * S);
+		mlx_put_image_to_window((*mlx).ptr, (*mlx).win, \
+		(*mlx).p.pf[frame((*mlx).p.pfc)], j * S, i * S);
 	}
-	else if (MLX.p.dir == 2)
-	{
-		k++;
-		MPW(MLX.ptr, MLX.win, MLX.p.pr[frame(MLX.p.pfc)], j * S, i * S);
-	}
-	else if (MLX.p.dir == 1)
+	else if ((*mlx).p.dir == 2)
 	{
 		k++;
-		MPW(MLX.ptr, MLX.win, MLX.p.pl[frame(MLX.p.pfc)], j * S, i * S);
+		mlx_put_image_to_window((*mlx).ptr, (*mlx).win, \
+		(*mlx).p.pr[frame((*mlx).p.pfc)], j * S, i * S);
 	}
-	if (MLX.p.dir != 0 && k == MLX.p.plc + 5)
+	else if ((*mlx).p.dir == 1)
+	{
+		k++;
+		mlx_put_image_to_window((*mlx).ptr, (*mlx).win, \
+		(*mlx).p.pl[frame((*mlx).p.pfc)], j * S, i * S);
+	}
+	if ((*mlx).p.dir != 0 && k == (*mlx).p.plc + 5)
 	{
 		k = 0;
-		MLX.p.dir = 0;
+		(*mlx).p.dir = 0;
 	}
 }
 
@@ -43,32 +46,36 @@ void	mlx_put_ground(t_mlx *mlx)
 	int	i;
 	int	j;
 
-	k = labs((long int) mlx) % labs((long int) MLX.map) % 10;
+	k = labs((long int)mlx) % labs((long int)(*mlx).map) % 10;
 	i = 0;
-	while (++i < MLX.y)
+	while (++i < (*mlx).y)
 	{
 		j = 0;
-		while (++j < MLX.x)
+		while (++j < (*mlx).x)
 		{
-			if (k >= MLX.gw.gc)
+			if (k >= (*mlx).gw.gc)
 				k = 0;
-			if (MLX.map[i][j] != '1')
-				MPW(MLX.ptr, MLX.win, MLX.gw.g[k++], j * S, i * S);
+			if ((*mlx).map[i][j] != '1')
+				mlx_put_image_to_window((*mlx).ptr, \
+				(*mlx).win, (*mlx).gw.g[k++], j * S, i * S);
 		}
 	}
 }
 
 void	mlx_put_exit(t_mlx *mlx, int i, int j)
 {
-	if (MLX.c.coins == MLX.c.n && MLX.c.custom < MLX.d.dc)
+	if ((*mlx).c.coins == (*mlx).c.n && (*mlx).c.custom < (*mlx).d.dc)
 	{
-		MLX.c.custom++;
-		MPW(MLX.ptr, MLX.win, MLX.d.d[frame(MLX.d.dc)], j * S, i * S);
+		(*mlx).c.custom++;
+		mlx_put_image_to_window((*mlx).ptr, (*mlx).win, \
+		(*mlx).d.d[frame((*mlx).d.dc)], j * S, i * S);
 	}
-	else if (MLX.c.custom == 0)
-		MPW(MLX.ptr, MLX.win, MLX.d.d[0], j * S, i * S);
+	else if ((*mlx).c.custom == 0)
+		mlx_put_image_to_window((*mlx).ptr, (*mlx).win, \
+		(*mlx).d.d[0], j * S, i * S);
 	else
-		MPW(MLX.ptr, MLX.win, MLX.d.d[MLX.d.dc - 1], j * S, i * S);
+		mlx_put_image_to_window((*mlx).ptr, (*mlx).win, \
+		(*mlx).d.d[(*mlx).d.dc - 1], j * S, i * S);
 }
 
 void	mlx_put_sprites(t_mlx *mlx)
@@ -77,24 +84,29 @@ void	mlx_put_sprites(t_mlx *mlx)
 	int			j;
 
 	i = -1;
-	while (++i < MLX.y)
+	while (++i < (*mlx).y)
 	{
 		j = -1;
-		while (++j < MLX.x)
+		while (++j < (*mlx).x)
 		{
-			if (MLX.map[i][j] == 'P')
+			if ((*mlx).map[i][j] == 'P')
 				mlx_put_player(mlx, i, j);
-			else if (MLX.map[i][j] == 'R')
-				MPW(MLX.ptr, MLX.win, MLX.r.rv[frame(MLX.r.rvc)], j * S, i * S);
-			else if (MLX.map[i][j] == 'E')
+			else if ((*mlx).map[i][j] == 'R')
+				mlx_put_image_to_window((*mlx).ptr, \
+				(*mlx).win, (*mlx).r.rv[frame((*mlx).r.rvc)], j * S, i * S);
+			else if ((*mlx).map[i][j] == 'E')
 				mlx_put_exit(mlx, i, j);
-			else if (MLX.map[i][j] == '1' && i < MLX.y - 1 && \
-				MLX.map[i + 1][j] == '1')
-				MPW(MLX.ptr, MLX.win, MLX.gw.w[0], j * S, i * S);
-			else if (MLX.map[i][j] == '1')
-				MPW(MLX.ptr, MLX.win, MLX.gw.w[1], j * S, i * S);
-			else if (MLX.map[i][j] == 'C')
-				MPW(MLX.ptr, MLX.win, MLX.c.c[frame(MLX.c.wc)], j * S, i * S);
+			else if ((*mlx).map[i][j] == '1' && i < \
+			(*mlx).y - 1 && \
+				(*mlx).map[i + 1][j] == '1')
+				mlx_put_image_to_window((*mlx).ptr, \
+				(*mlx).win, (*mlx).gw.w[0], j * S, i * S);
+			else if ((*mlx).map[i][j] == '1')
+				mlx_put_image_to_window((*mlx).ptr, \
+				(*mlx).win, (*mlx).gw.w[1], j * S, i * S);
+			else if ((*mlx).map[i][j] == 'C')
+				mlx_put_image_to_window((*mlx).ptr, \
+				(*mlx).win, (*mlx).c.c[frame((*mlx).c.wc)], j * S, i * S);
 		}
 	}
 }

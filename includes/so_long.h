@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 14:48:28 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:55:13 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,20 @@
 # include "../../minilibx/mlx.h"
 # include <mlx.h>
 
-#define MLX	(*mlx)
-#define XPM mlx_xpm_file_to_image
-#define	MPW	mlx_put_image_to_window
-#define KeyDown 2
-#define DARK_ORANGE 0xDC5410
-#define BLUE 0x1681C9
-#define REDCROSS 17
-#define keyA 0
-#define keyS 1
-#define keyD 2
-#define keyW 13
-#define	UpArrow 126
-#define	DownArrow 125
-#define	LeftArrow 123
-#define	RightArrow 124
-#define keyC 8
-#define keyEsc 53
-#define S 48
+# define KEYDOWN 2
+# define DARK_ORANGE 0xDC5410
+# define BLUE 0x1681C9
+# define REDCROSS 17
+# define KEYA 0
+# define KEYS 1
+# define KEYD 2
+# define KEYW 13
+# define UPARROW 126
+# define DOWNARROW 125
+# define LEFTARROW 123
+# define RIGHTARROW 124
+# define KEYESC 53
+# define S 48
 
 /*
 *int	x;
@@ -120,7 +116,7 @@ typedef struct s_coins
 *void	**d;
 *int	dc;
 */
-typedef struct	s_doors
+typedef struct s_doors
 {
 	void	**d;
 	int		dc;
@@ -191,7 +187,7 @@ void	mlx_start(t_mlx *mlx);
 char	*ft_strdup(char *str);
 int		ft_strlen(char *str);
 char	**parsing(char *arg);
-char    *ft_itoa(int n);
+char	*ft_itoa(int n);
 int		frame(int n);
 
 #endif

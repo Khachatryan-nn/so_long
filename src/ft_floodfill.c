@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:32:04 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 16:33:14 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:14:59 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ void	exit_check(char **tab, char **area, char *str, t_point size)
 		{
 			if (area[i][j] == 'C' || area[i][j] == 'P' || area[i][j] == 'E')
 			{
-				write (2, "ERROR: You can't collect all coins and escape.\n", 47);
+				write (2, "ERROR: You can't collect all \
+				coins and escape.\n", 47);
 				free_strings(tab, str);
 				exit (free_matrix(area, size.y));
 			}
