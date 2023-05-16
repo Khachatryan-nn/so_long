@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:18:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 20:05:53 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:02:18 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ void	mlx_start(t_mlx *mlx)
 	(*mlx).p.prc = 8;
 	(*mlx).r.rvc = 4;
 	(*mlx).p.dir = 0;
+	(*mlx).c.wc = 3;
+	(*mlx).p.plc = 8;
+	(*mlx).p.pf = (void **)malloc(sizeof(void *) * (*mlx).p.pfc);
+	(*mlx).p.pr = (void **)malloc(sizeof(void *) * (*mlx).p.prc);
+	(*mlx).r.rv = (void **)malloc(sizeof(void *) * (*mlx).r.rvc);
 	count_coins(mlx);
 	load_sprites(mlx);
 	load_sprites_2(mlx);

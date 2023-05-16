@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:20:22 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 20:07:15 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/05/15 09:52:34 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,31 @@ void	mlx_put_exit(t_mlx *mlx, int i, int j)
 		(*mlx).d.d[(*mlx).d.dc - 1], j * S, i * S);
 }
 
+void static	handle_case(t_mlx *mlx, int i, int j)
+{
+	if ((*mlx).map[i][j] == 'P')
+		mlx_put_player(mlx, i, j);
+	else if ((*mlx).map[i][j] == 'R')
+		mlx_put_image_to_window((*mlx).ptr, \
+		(*mlx).win, (*mlx).r.rv[frame((*mlx).r.rvc)], j * S, i * S);
+	else if ((*mlx).map[i][j] == 'E')
+		mlx_put_exit(mlx, i, j);
+	else if ((*mlx).map[i][j] == '1' && i < \
+	(*mlx).y - 1 && (*mlx).map[i + 1][j] == '1')
+		mlx_put_image_to_window((*mlx).ptr, \
+		(*mlx).win, (*mlx).gw.w[0], j * S, i * S);
+	else if ((*mlx).map[i][j] == '1')
+		mlx_put_image_to_window((*mlx).ptr, \
+		(*mlx).win, (*mlx).gw.w[1], j * S, i * S);
+	else if ((*mlx).map[i][j] == 'C')
+		mlx_put_image_to_window((*mlx).ptr, \
+		(*mlx).win, (*mlx).c.c[frame((*mlx).c.wc)], j * S, i * S);
+}
+
 void	mlx_put_sprites(t_mlx *mlx)
 {
-	int			i;
-	int			j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < (*mlx).y)
@@ -89,24 +110,7 @@ void	mlx_put_sprites(t_mlx *mlx)
 		j = -1;
 		while (++j < (*mlx).x)
 		{
-			if ((*mlx).map[i][j] == 'P')
-				mlx_put_player(mlx, i, j);
-			else if ((*mlx).map[i][j] == 'R')
-				mlx_put_image_to_window((*mlx).ptr, \
-				(*mlx).win, (*mlx).r.rv[frame((*mlx).r.rvc)], j * S, i * S);
-			else if ((*mlx).map[i][j] == 'E')
-				mlx_put_exit(mlx, i, j);
-			else if ((*mlx).map[i][j] == '1' && i < \
-			(*mlx).y - 1 && \
-				(*mlx).map[i + 1][j] == '1')
-				mlx_put_image_to_window((*mlx).ptr, \
-				(*mlx).win, (*mlx).gw.w[0], j * S, i * S);
-			else if ((*mlx).map[i][j] == '1')
-				mlx_put_image_to_window((*mlx).ptr, \
-				(*mlx).win, (*mlx).gw.w[1], j * S, i * S);
-			else if ((*mlx).map[i][j] == 'C')
-				mlx_put_image_to_window((*mlx).ptr, \
-				(*mlx).win, (*mlx).c.c[frame((*mlx).c.wc)], j * S, i * S);
+			handle_case(mlx, i, j);
 		}
 	}
 }
