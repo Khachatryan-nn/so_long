@@ -6,11 +6,11 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 00:03:43 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 14:25:45 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:59:12 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {

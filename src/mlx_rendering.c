@@ -6,11 +6,11 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:20:22 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/15 09:52:34 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:15:42 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void static	mlx_put_player(t_mlx *mlx, int i, int j)
 {
@@ -46,7 +46,7 @@ void	mlx_put_ground(t_mlx *mlx)
 	int	i;
 	int	j;
 
-	k = labs((long int)mlx) % labs((long int)(*mlx).map) % 10;
+	k = (long int)mlx % (long int)(*mlx).map % 10;
 	i = 0;
 	while (++i < (*mlx).y)
 	{

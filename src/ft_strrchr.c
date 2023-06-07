@@ -6,11 +6,11 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:18:37 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/04/29 00:15:36 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:59:12 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 /*
 ** The ft_strrchr() function locates the last occurrence of c (converted to a

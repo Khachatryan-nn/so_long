@@ -6,11 +6,11 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:59:41 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 19:51:07 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:59:12 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	game_win(t_mlx *mlx, int i, int j, char c)
 {

@@ -6,11 +6,11 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 00:17:30 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/02 17:50:31 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:59:12 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 char	*ft_strtrim(char *str, char c)
 {

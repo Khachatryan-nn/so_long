@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/15 09:33:00 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:58:43 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "../../minilibx/mlx.h"
-//# include <mlx.h>
+# include <mlx.h>
+//# include "../../minilibx/mlx.h"
 
 # define KEYDOWN 2
 # define DARK_ORANGE 0xDC5410

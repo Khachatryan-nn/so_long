@@ -6,11 +6,11 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:20:31 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/05/14 19:55:55 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:59:12 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	frame(int n)
 {

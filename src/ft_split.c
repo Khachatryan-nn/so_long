@@ -6,11 +6,11 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 23:17:34 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/04/30 23:17:48 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:21:35 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 static int	ft_count_words(char const *str, char ch)
 {
