@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 00:17:30 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/06/07 15:59:12 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:53:17 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ char	*ft_strtrim(char *str, char c)
 
 	i = 0;
 	n = 0;
-	while ((str[i] == c || str[i] == '\n') && str[i])
+	while (str[i] && (str[i] == c || str[i] == '\n'))
 		i++;
 	j = ft_strlen(str) - 1;
 	while (str[j] && (str[j] == c || str[j] == '\n'))
 		j--;
-	new = (char *)malloc(sizeof(char) * (j - i + 1));
+	new = (char *)malloc(sizeof(char) * (j - i + 2));
 	if (!new)
 	{
 		free(str);
