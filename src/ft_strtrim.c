@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 00:17:30 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/07/06 15:53:17 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:05:17 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	*ft_strtrim(char *str, char c)
 	new = (char *)malloc(sizeof(char) * (j - i + 2));
 	if (!new)
 	{
+		write (1, "Error: File is empty.\n", 22);
 		free(str);
 		exit(0);
 	}

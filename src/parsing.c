@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/06/07 15:59:12 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:05:35 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ char static	*read_from_file(int fd)
 
 	s = ft_strdup("");
 	text = get_next_line(fd);
+	if (!text)
+	{
+		free (s);
+		write (1, "Error: File is empty\n", 21);
+		exit (1);
+	}
 	while (text != NULL)
 	{
 		s = ft_strjoin(s, text);
