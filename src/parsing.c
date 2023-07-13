@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:16:18 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/07/06 19:05:35 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:31:57 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char static	*read_from_file(int fd)
 	if (!text)
 	{
 		free (s);
-		write (1, "Error: File is empty\n", 21);
+		write (1, "Error: File is empty.\n", 22);
 		exit (1);
 	}
 	while (text != NULL)
@@ -99,21 +99,17 @@ char	**parsing(char *arg)
 
 	s = ft_strrchr(arg, '.');
 	if (!s || ft_strcmp(s, ".ber"))
-	{
-		write (2, "ERROR: Invalid file type.\n", 26);
-		exit(0);
-	}
+		exit (print_error(0));
 	fd = open(arg, O_RDONLY);
 	if (fd == -1)
-	{
-		write (2, "ERROR: Invalid file. Please check and try again.\n", 49);
-		exit(0);
-	}
+		exit (print_error(1));
 	s = ft_strtrim(read_from_file(fd), ' ');
 	splited = ft_split(s, '\n');
+	if (splited[0] == NULL)
+		exit (print_error(2));
 	forbidden_sym_check(splited, s);
-	flood_fill(splited, s);
 	additional_checks(splited, s);
+	flood_fill(splited, s);
 	free(s);
 	s = 0;
 	return (splited);

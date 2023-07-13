@@ -6,7 +6,7 @@
 /*   By: tikhacha <tikhacha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 22:07:10 by tikhacha          #+#    #+#             */
-/*   Updated: 2023/06/23 17:45:54 by tikhacha         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:22:33 by tikhacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,11 +182,12 @@ char	*get_next_line(int fd);
 void	move_right(t_mlx *mlx);
 void	move_left(t_mlx *mlx);
 void	move_down(t_mlx *mlx);
-void	move_up(t_mlx *mlx);
 void	mlx_start(t_mlx *mlx);
 char	*ft_strdup(char *str);
 int		ft_strlen(char *str);
 char	**parsing(char *arg);
+void	move_up(t_mlx *mlx);
+int		print_error(int k);
 char	*ft_itoa(int n);
 int		frame(int n);
 
